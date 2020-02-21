@@ -1,0 +1,19 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 24
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	extract_bcs
+	2
+
+[Thu Feb 20 23:11:07 2020]
+rule extract_bcs:
+    input: barcodes/bc1hits.txt, barcodes/bc3hits.txt
+    output: barcodes/positions.txt
+    jobid: 1
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/nick/hdd/Dropbox/Dropbox/grant_application/split_seq_kasumi_1/split_seq_snakemake/.snakemake/log/2020-02-20T231107.317655.snakemake.log

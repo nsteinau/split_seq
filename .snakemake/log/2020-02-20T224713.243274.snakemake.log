@@ -1,0 +1,17 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	1	all
+	1	extract_bcs
+	1	find_bcs
+	1	make_bc_fasta
+	4
+
+[Thu Feb 20 22:47:13 2020]
+rule make_bc_fasta:
+    input: Round1_barcodes_new5.txt, Round2_barcodes_new4.txt, Round3_barcodes_new4.txt
+    output: barcodes/bc1.fa, barcodes/bc2.fa, barcodes/bc3.fa
+    jobid: 3
+
+RuleException in line 1 of /home/nick/hdd/Dropbox/Dropbox/grant_application/split_seq_kasumi_1/split_seq_snakemake/rules/demultiplex.smk:
+NameError: The name '\'printf ">%s\n%s\n",$0,$0\'' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

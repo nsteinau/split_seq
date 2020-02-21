@@ -1,0 +1,4 @@
+KeyError in line 19 of /home/nick/hdd/Dropbox/Dropbox/grant_application/split_seq_kasumi_1/split_seq_snakemake/rules/demultiplex.smk:
+'raw_reads'
+  File "/home/nick/hdd/Dropbox/Dropbox/grant_application/split_seq_kasumi_1/split_seq_snakemake/Snakefile", line 30, in <module>
+  File "/home/nick/hdd/Dropbox/Dropbox/grant_application/split_seq_kasumi_1/split_seq_snakemake/rules/demultiplex.smk", line 19, in <module>

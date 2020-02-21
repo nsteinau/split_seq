@@ -1,0 +1,45 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 24
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	extract_bcs
+	1	find_bcs
+	1	make_bc_fasta
+	4
+
+[Thu Feb 20 23:00:29 2020]
+rule make_bc_fasta:
+    input: Round1_barcodes_new5.txt, Round2_barcodes_new4.txt, Round3_barcodes_new4.txt
+    output: barcodes/bc1.fa, barcodes/bc2.fa, barcodes/bc3.fa
+    jobid: 3
+
+[Thu Feb 20 23:00:29 2020]
+Finished job 3.
+1 of 4 steps (25%) done
+
+[Thu Feb 20 23:00:29 2020]
+rule find_bcs:
+    input: raw_fastq_small.fastq, barcodes/bc1.fa, barcodes/bc2.fa, barcodes/bc3.fa
+    output: barcodes/bc1hits.txt, barcodes/bc3hits.txt
+    jobid: 2
+    threads: 24
+
+Removing temporary output file barcodes/bc2.fa.
+Removing temporary output file barcodes/bc3.fa.
+Removing temporary output file barcodes/bc1.fa.
+[Thu Feb 20 23:01:28 2020]
+Finished job 2.
+2 of 4 steps (50%) done
+
+[Thu Feb 20 23:01:28 2020]
+rule extract_bcs:
+    input: barcodes/bc1hits.txt, barcodes/bc3hits.txt
+    output: barcodes/positions.txt
+    jobid: 1
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/nick/hdd/Dropbox/Dropbox/grant_application/split_seq_kasumi_1/split_seq_snakemake/.snakemake/log/2020-02-20T230029.138931.snakemake.log

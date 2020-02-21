@@ -1,0 +1,44 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 24
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	find_bcs
+	1	make_bc_fasta
+	3
+
+[Fri Feb 21 00:13:32 2020]
+rule make_bc_fasta:
+    input: Round1_barcodes_new5.txt, Round2_barcodes_new4.txt, Round3_barcodes_new4.txt
+    output: barcodes/bc1.fa, barcodes/bc2.fa, barcodes/bc3.fa
+    jobid: 2
+
+[Fri Feb 21 00:13:32 2020]
+Finished job 2.
+1 of 3 steps (33%) done
+
+[Fri Feb 21 00:13:32 2020]
+rule find_bcs:
+    input: raw_fastq_small.fastq, barcodes/bc1.fa, barcodes/bc2.fa, barcodes/bc3.fa
+    output: barcodes/bc1hits.bed, barcodes/bc3hits.bed
+    jobid: 1
+    threads: 24
+
+Removing temporary output file barcodes/bc2.fa.
+Removing temporary output file barcodes/bc1.fa.
+Removing temporary output file barcodes/bc3.fa.
+[Fri Feb 21 00:14:03 2020]
+Finished job 1.
+2 of 3 steps (67%) done
+
+[Fri Feb 21 00:14:03 2020]
+localrule all:
+    input: barcodes/bc1hits.bed, barcodes/bc3hits.bed
+    jobid: 0
+
+[Fri Feb 21 00:14:03 2020]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /home/nick/hdd/Dropbox/Dropbox/grant_application/split_seq_kasumi_1/split_seq_snakemake/.snakemake/log/2020-02-21T001332.365852.snakemake.log
